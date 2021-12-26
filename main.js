@@ -9,9 +9,9 @@ const app = new Vue({
     ...App
 })
 app.$mount()
-
-let baseUrl = "http://localhost:8099/emos-wx-api"
-let workflow = "http://IP地址:9090/emos-workflow"
+//172.16.24.195
+let baseUrl = "http://172.16.24.195:8099/mix_project"
+let workflow = "http://localhost:8099/emos-workflow"
 
 Vue.prototype.code = "慕课网授权字符串"
 Vue.prototype.tencent = {

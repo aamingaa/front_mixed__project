@@ -1,80 +1,77 @@
 <template>
-	<view class="content">
-		<view v-if="!hasLogin" class="userinfo">
-			<view class="btn-row">
-				<button type="default" @tap="bindLogin">登录</button>
-			</view>
-		</view>
-		<view v-else class="userinfo">
-			<image :src="userInfo.avatarUrl" class="userinfo-avatar"></image>
-			<view class="userinfo-nickname">姓名：{{userInfo.nickName}}</view>
-			<view v-if="userInfo.gender==0" class="userinfo-nickname">性别：未知</view>
-			<view v-if="userInfo.gender==1" class="userinfo-nickname">性别：男</view>
-			<view v-if="userInfo.gender==2" class="userinfo-nickname">性别：女</view>
-			<view class="btn-row">
-				<button type="default" @tap="bindLogout">退出</button>
-			</view>
+	<view>
+		<image src="../../static/logo-2.png" mode="widthFix" class="logo"></image>
+		<view class="register-container">
+			<input type="text" placeholder="输入你的邀请码" class="register-code" maxlength="6" v-model="registerCode" />
+			<view class="register-desc">管理员创建员工证账号之后，你可以从你的个人邮箱中获得注册邀请码</view>
+			<button class="register-btn" open-type="getUserInfo" @tap="register()">执行注册</button>
 		</view>
 	</view>
 </template>
 
 <script>
-	import {mapState,mapActions} from 'vuex';
-	export default {
-		computed: {
-			...mapState(['userInfo','hasLogin']),
-		},
-		data() {
-			return {
-				title: 'Hello'
+export default {
+	data() {
+		return {
+			registerCode: ''
+		};
+	},
+	methods: {
+		register: function() {
+			let that = this;
+			if (that.registerCode == null || that.registerCode.length == 0) {
+				uni.showToast({
+					icon: 'none',
+					title: '邀请码不能为空'
+				});
+				return;
+			} else if (/^[0-9]{6}$/.test(that.registerCode) == false) {
+				console.log("hello");
+				uni.showToast({
+					icon: 'none',
+					title: '邀请码必须是6位数字'
+				});
+				return;
 			}
-		},
-		onLoad() {
-
-		},
-		methods: {
-			...mapActions(['logout']),
-			bindLogin() {
-				uni.reLaunch({url: '/pages/index/login'});
-			},
-			bindLogout() {
-				this.$store.dispatch('logout').then(() => {
-					uni.reLaunch({url: '/pages/index/index'});
-				}).catch((error) => {
-					if (error !== 'error') {
-						uni.showToast({title: error,icon: "none"});
-					}
-				})
-			},
+			console.log("hello");
+			uni.login({
+				provider: 'weixin',
+				success: function(resp) {
+					let code = resp.code;
+					console.log(code);
+					uni.getUserProfile({
+						desc: '获取用户信息',
+						success: function(resp) {
+							let nickName = resp.userInfo.nickName;
+							let avatarUrl = resp.userInfo.avatarUrl;
+							// console.log(nickName);
+							// console.log(avatarUrl);
+							let data = {
+								code: code,
+								nickname: nickName,
+								photo: avatarUrl,
+								registerCode: that.registerCode
+							};
+							console.log(data);
+							that.ajax(that.url.register, 'POST', data, function(resp) {
+								let permission = resp.data.permission;
+								let token = resp.data.token;
+								console.log(token);
+								uni.setStorageSync('token', token);
+								// uni.setStorageSync('permission', permission);
+								uni.switchTab({
+									url: '../index/index'
+								});
+							});
+						}
+					});
+				}
+			});
 		}
 	}
+};
 </script>
 
-<style>
-	.container {
-	  width: 100%;
-	  display: flex;
-	  flex-direction: column;
-	  align-items: center;
-	  justify-content: space-between;
-	  padding: 200rpx 0;
-	  box-sizing: border-box;
-	}
-	
-	.userinfo {
-	  display: flex;
-	  flex-direction: column;
-	  align-items: center;
-	}
-	
-	.userinfo-avatar {
-	  width: 128rpx;
-	  height: 128rpx;
-	  margin: 20rpx;
-	  border-radius: 50%;
-	}
-
-	.userinfo-nickname {
-	  color: #aaa;
-	}
+<style lang="less">
+// @import url('index.less');
 </style>
