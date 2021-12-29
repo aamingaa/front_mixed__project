@@ -1,96 +1,324 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			"path": "pages/loginRegister/loginRegister",
-			"style": {
-				"navigationBarTitleText": "欢迎使用EMOS系统",
-				"enablePullDownRefresh": false
-			}
-		},
-		{
-			"path": "pages/login/login",
-			"style": {
-				"navigationBarTitleText": "欢迎使用EMOS系统",
-				"enablePullDownRefresh": false
-			}
-		},
-		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "首页"
+				"app-plus": {
+					"titleNView": false //禁用原生导航栏
+				},
+				"enablePullDownRefresh":true	//开启下拉刷新
 			}
 		},
 		{
-			"path": "pages/mine/mine",
-			"style": {
-				"navigationBarTitleText": "首页"
-			}
-		},
-		// {
-		// 	"path": "pages/demo/demo",
-		// 	"style": {
-		// 		"navigationBarTitleText": "",
-		// 		"enablePullDownRefresh": false
-		// 	}
-		// },
-		
+            "path" : "pages/friend/friend",
+            "style": {
+                "app-plus": {
+                	"titleNView": false //禁用原生导航栏
+                }
+            }
+        },
 		{
-			"path": "pages/register/register",
+		    "path" : "pages/vlog/vlog",
+		    "style": {
+		        "app-plus": {
+		        	"titleNView": false //禁用原生导航栏
+		        }
+		    }
+		},
+		{
+		    "path" : "pages/publish/publish",
+		    "style": {
+		        "navigationBarTitleText": "发布视频"
+		    }
+		},
+		{
+            "path" : "pages/me/me",
+            "style": {
+                "app-plus": {
+                	"titleNView": false //禁用原生导航栏
+                }
+            }
+        },
+		{
+		    "path" : "pages/me/vlogerInfo",
+		    "style": {
+		        "app-plus": {
+		        	"titleNView": false //禁用原生导航栏
+		        }
+		    }
+		},
+		{
+            "path" : "pages/message/message",
+            "style": {
+                "navigationBarTitleText": "消息",
+				"navigationBarBackgroundColor": "#181b27"
+            }
+        }
+        ,{
+            "path" : "pages/publish/preview",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "预览视频",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/search/search",
 			"style": {
-				"navigationBarTitleText": "新用户注册",
-				"enablePullDownRefresh": false
+               "app-plus": {
+               	"titleNView": false //禁用原生导航栏
+               }
 			}
+            
+        },{
+            "path" : "pages/search/searchList",
+            "style": {
+                "app-plus": {
+                	"titleNView": false //禁用原生导航栏
+                }
+            }
+        },
+        {
+            "path" : "pages/qrcode/qrcode",
+			"style": {
+			   "app-plus": {
+					"titleNView": false ,//禁用原生导航栏
+					"navigationBarTextStyle": "black"
+			   }
+			}
+            // "style": {
+            //     "navigationBarTitleText": "扫码分享",
+            //     "enablePullDownRefresh": false
+            // }
+            
+        }
+        ,{
+            "path" : "pages/loginRegist/loginRegist",
+            "style": {
+                "app-plus": {
+                	"titleNView": false ,//禁用原生导航栏
+					"navigationBarTextStyle": "black"
+                }
+            }
+            
+        }
+        ,{
+            "path" : "pages/me/myBackImg",
+            "style": {
+                "app-plus": {
+                	"titleNView": false //禁用原生导航栏
+                }
+            }
+        },{
+            "path" : "pages/me/myFace",
+            "style": {
+                "app-plus": {
+                	"titleNView": false //禁用原生导航栏
+                }
+            }
+        },{
+            "path" : "pages/me/myInfo",
+            "style": {
+                "navigationBarTitleText": "修改个人资料",
+				"navigationBarBackgroundColor": "#181b27"
+            }
+        },{
+            "path" : "pages/me/modifyNickname",
+            "style": {
+                "navigationBarTitleText": "修改昵称",
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor": "#181b27",
+				"app-plus": {
+					"titleNView": {
+						"buttons": [ //原生标题栏按钮配置,
+							{
+								"text": "保存" ,//原生标题栏增加分享按钮，点击事件可通过页面的 onNavigationBarButtonTap 函数进行监听
+								"color": "#ef274d",
+								"width": "60px",
+								"fontSize": "15px",
+								"fontWeight": "bold"
+								
+							}
+						]
+					}
+				}
+            }
+        },{
+            "path" : "pages/me/modifyIMoocNum",
+            "style": {
+                "navigationBarTitleText": "修改慕课号",
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor": "#181b27",
+				"app-plus": {
+					"titleNView": {
+						"buttons": [ //原生标题栏按钮配置,
+							{
+								"text": "保存" ,//原生标题栏增加分享按钮，点击事件可通过页面的 onNavigationBarButtonTap 函数进行监听
+								"color": "#ef274d",
+								"width": "60px",
+								"fontSize": "15px",
+								"fontWeight": "bold"
+								
+							}
+						]
+					}
+				}
+            }
+        },{
+            "path" : "pages/me/modifyDesc",
+            "style": {
+                "navigationBarTitleText": "修改简介",
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor": "#181b27",
+				"app-plus": {
+					"titleNView": {
+						"buttons": [ //原生标题栏按钮配置,
+							{
+								"text": "保存" ,//原生标题栏增加分享按钮，点击事件可通过页面的 onNavigationBarButtonTap 函数进行监听
+								"color": "#ef274d",
+								"width": "60px",
+								"fontSize": "15px",
+								"fontWeight": "bold"
+								
+							}
+						]
+					}
+				}
+            }
+		},{
+            "path" : "pages/me/modifySex",
+            "style": {
+                "navigationBarTitleText": "修改性别",
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor": "#181b27",
+				"app-plus": {
+					"titleNView": {
+						"buttons": [ //原生标题栏按钮配置,
+							{
+								"text": "保存" ,//原生标题栏增加分享按钮，点击事件可通过页面的 onNavigationBarButtonTap 函数进行监听
+								"color": "#ef274d",
+								"width": "60px",
+								"fontSize": "15px",
+								"fontWeight": "bold"
+								
+							}
+						]
+					}
+				}
+            }
+		},{
+            "path" : "pages/me/modifyBirthday",
+            "style": {
+                "navigationBarTitleText": "修改生日",
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor": "#181b27",
+				"app-plus": {
+					"titleNView": {
+						"buttons": [ //原生标题栏按钮配置,
+							{
+								"text": "保存" ,//原生标题栏增加分享按钮，点击事件可通过页面的 onNavigationBarButtonTap 函数进行监听
+								"color": "#ef274d",
+								"width": "60px",
+								"fontSize": "15px",
+								"fontWeight": "bold"
+								
+							}
+						]
+					}
+				}
+            }
+		},{
+            "path" : "pages/me/modifyLocation",
+            "style": {
+                "navigationBarTitleText": "修改所在地",
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor": "#181b27",
+				"app-plus": {
+					"titleNView": {
+						"buttons": [ //原生标题栏按钮配置,
+							{
+								"text": "保存" ,//原生标题栏增加分享按钮，点击事件可通过页面的 onNavigationBarButtonTap 函数进行监听
+								"color": "#ef274d",
+								"width": "60px",
+								"fontSize": "15px",
+								"fontWeight": "bold"
+								
+							}
+						]
+					}
+				}
+            }
+		},{
+            "path" : "pages/me/chooseProvince",
+            "style": {
+                "navigationBarTitleText": "选择省份",
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor": "#181b27"
+            }
+		},{
+            "path" : "pages/me/chooseCity",
+            "style": {
+                "navigationBarTitleText": "选择地区",
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor": "#181b27"
+            }
+		},{
+            "path" : "pages/me/settings",
+            "style": {
+                "navigationBarTitleText": "设置",
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor": "#181b27"
+            }
+		},{
+            "path" : "pages/me/myFans",
+            "style": {
+                "navigationBarTitleText": "我的粉丝",
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor": "#181b27"
+            }
+		},{
+            "path" : "pages/me/myFollows",
+            "style": {
+                "navigationBarTitleText": "我的关注",
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor": "#181b27"
+            }
 		}
+		
     ],
 	"globalStyle": {
-		"navigationBarTextStyle": "black",
+		"navigationBarBackgroundColor":"#000000",
+		"navigationBarTextStyle":"white",  //状态栏字体颜色
 		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
-	},
-	"condition" : { //模式配置，仅开发期间生效
-		"current": 0, //当前激活的模式(list 的索引项)
-		"list": [
-			{
-				"name": "", //模式名称
-				"path": "", //启动页面，必选
-				"query": "" //启动参数，在页面的onLoad函数里面得到
-			}
-		]
+		"backgroundColor": "#000000"
 	},
 	"tabBar": {
-		"color": "#666",
-		"selectedColor": "#3474FF",
+		"color": "#999696",
+		"selectedColor": "#FFFFFF",
+		"borderStyle": "#1c1b1b",
+		"backgroundColor": "#0e0d0d",
+		"fontSize": "16px",
 		"list": [{
-				"text": "首页",
 				"pagePath": "pages/index/index",
-				"iconPath": "static/bar-1.png",
-				"selectedIconPath": "static/bar-1-active.png"
+				"text": "首页"
 			},
 			{
-				"text": "我的",
-				"pagePath": "pages/mine/mine",
-				"iconPath": "static/bar-5.png",
-				"selectedIconPath": "static/bar-5-active.png"
+				"pagePath": "pages/friend/friend",
+				"text": "朋友"
+			}, {
+				"pagePath": "pages/message/message",
+				"text": "消息"
+			}, {
+				"pagePath": "pages/me/me",
+				"text": "我"
 			}
-			// {
-			// 	"text": "会议",
-			// 	"pagePath": "pages/meeting_list/meeting_list",
-			// 	"iconPath": "static/bar-2.png",
-			// 	"selectedIconPath": "static/bar-2-active.png"
-			// },
-			// {
-			// 	"text": "文档",
-			// 	"pagePath": "pages/document/document",
-			// 	"iconPath": "static/bar-3.png",
-			// 	"selectedIconPath": "static/bar-3-active.png"
-			// },
-			// {
-			// 	"text": "通讯录",
-			// 	"pagePath": "pages/contacts/contacts",
-			// 	"iconPath": "static/bar-4.png",
-			// 	"selectedIconPath": "static/bar-4-active.png"
-			// },
-		]
+		],
+		"midButton": {
+			// "width": "50px",
+			"height": "38px",
+			"iconWidth":"40px",
+			"iconPath":"static/images/douyin.png"
+		}
 	}
 }
